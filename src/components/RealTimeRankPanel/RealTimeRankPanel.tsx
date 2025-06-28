@@ -3,22 +3,16 @@ import { useEffect, useState } from "react";
 import TargetSelectionPanel from "./subcomponents/TargetSelectionPanel";
 import RankSelectionPanel from "./subcomponents/RankSelectionPanel";
 import Card from "./subcomponents/Card";
-import { productMockData } from "@src/mock/mockData";
-import type { Product } from "@src/mock/mockData";
+import { getProductMockData, type Product } from "@src/mock/mockData";
 import theme from "@src/styles/kakaoTheme";
 
 function RealTimeRankPanel() {
   const [productList, setCardList] = useState<Product[]>([]);
-  const [productRenderList, setProductRenderList] = useState<
-    (Product & { id: number })[]
-  >([]);
+  const [productRenderList, setProductRenderList] = useState<Product[]>([]);
   const [expand, setExpand] = useState<boolean>(false);
 
   useEffect(() => {
-    const mockList = Array.from({ length: 21 }, (_, idx) => ({
-      ...productMockData,
-      id: idx + 1
-    }));
+    const mockList = getProductMockData();
     setCardList(mockList);
   }, []);
 
@@ -33,7 +27,7 @@ function RealTimeRankPanel() {
       <RankSelectionPanel />
       <CardPlaceHolder>
         {productRenderList.map((p, i) => {
-          return <Card key={p.id} no={i + 1} prod={p} />;
+          return <Card key={p.uuid} no={i + 1} prod={p} />;
         })}
       </CardPlaceHolder>
       {productList.length > 6 && (

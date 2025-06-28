@@ -1,3 +1,6 @@
+//Package for mock test, must be removed on api implementation stage
+import { v4 } from "uuid";
+
 export const themeMockData = [
   {
     themeId: 3715,
@@ -104,6 +107,7 @@ type Price = {
 };
 
 export type Product = {
+  uuid: string; //uuid for mock test, must be removed on api implementation stage
   id: number;
   name: string;
   imageURL: string;
@@ -128,3 +132,11 @@ export const productMockData = {
       "https://st.kakaocdn.net/product/gift/gift_brand/20220216170226_38ba26d8eedf450683200d6730757204.png"
   }
 } as const;
+
+export function getProductMockData() {
+  const mockList = Array.from({ length: 21 }, () => ({
+    ...productMockData,
+    uuid: v4()
+  }));
+  return mockList;
+}
