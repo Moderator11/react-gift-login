@@ -1,7 +1,4 @@
 import styled from "@emotion/styled";
-import useUserInfo, { type UserInfoHook } from "@src/hooks/useUserInfo";
-import theme from "@src/styles/kakaoTheme";
-import { useNavigate } from "react-router-dom";
 
 function ErrorPage() {
   return (
