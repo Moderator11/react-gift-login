@@ -4,7 +4,9 @@ import "@src/index.css";
 import App from "@src/App.tsx";
 
 createRoot(document.getElementById("root")!).render(
-  <StrictMode>
-    <App />
-  </StrictMode>
+  //Strict mode disabled for preventing double calls for useEffect
+  // <StrictMode>
+  //   <App />
+  // </StrictMode>
+  <App />
 );

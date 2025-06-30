@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import ThemeButton from "@src/components/shared/ThemeButton";
-import { themeMockData } from "@src/mock/mockData";
+import { themeMockData } from "@src/mock/themeMockData";
 
 function GiftThemePanel() {
   return (

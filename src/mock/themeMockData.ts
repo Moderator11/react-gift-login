@@ -1,6 +1,3 @@
-//Package for mock test, must be removed on api implementation stage
-import { v4 } from "uuid";
-
 export const themeMockData = [
   {
     themeId: 3715,
@@ -93,50 +90,3 @@ export const themeMockData = [
       "https://img1.daumcdn.net/thumb/S104x104/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fgift%2Fhome%2Ftheme%2F370220241228_UPSAE.png"
   }
 ] as const;
-
-type BrandInfo = {
-  id: number;
-  name: string;
-  imageURL: string;
-};
-
-type Price = {
-  basicPrice: number;
-  discountRate: number;
-  sellingPrice: number;
-};
-
-export type Product = {
-  uuid: string; //uuid for mock test, must be removed on api implementation stage
-  id: number;
-  name: string;
-  imageURL: string;
-  price: Price;
-  brandInfo: BrandInfo;
-};
-
-export const productMockData = {
-  id: 123,
-  name: "BBQ 양념치킨+크림치즈볼+콜라1.25L",
-  imageURL:
-    "https://st.kakaocdn.net/product/gift/product/20231030175450_53e90ee9708f45ffa45b3f7b4bc01c7c.jpg",
-  price: {
-    basicPrice: 29000,
-    discountRate: 0,
-    sellingPrice: 29000
-  },
-  brandInfo: {
-    id: 2088,
-    name: "BBQ",
-    imageURL:
-      "https://st.kakaocdn.net/product/gift/gift_brand/20220216170226_38ba26d8eedf450683200d6730757204.png"
-  }
-} as const;
-
-export function getProductMockData() {
-  const mockList = Array.from({ length: 21 }, () => ({
-    ...productMockData,
-    uuid: v4()
-  }));
-  return mockList;
-}
